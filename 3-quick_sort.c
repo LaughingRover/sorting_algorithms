@@ -1,5 +1,7 @@
 #include "sort.h"
 
+/**
+ */
 void quick_sort(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
@@ -10,9 +12,11 @@ void quick_sort(int *array, size_t size)
 
 void quick_sort_helper(int *array, int low, int high)
 {
+	int pivot;
+
 	if (low < high)
 	{
-		int pivot = partition(array, low, high);
+		pivot = partition(array, low, high);
 		quick_sort_helper(array, low, pivot - 1);
 		quick_sort_helper(array, pivot + 1, high);
 	}
@@ -36,12 +40,13 @@ int partition(int *array, int low, int high)
 	swap(&array[i + 1], &array[high]);
 	print_array(array, high + 1);
 
-	return i + 1;
+	return (i + 1);
 }
 
 void swap(int *a, int *b)
 {
 	int temp = *a;
+
 	*a = *b;
 	*b = temp;
 }
